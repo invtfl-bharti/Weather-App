@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    height: 25%;
+    width: 25%;
+    object-fit: cover;
+
+}
+.logo img{
+    height: 24%;
+    width: 24%;
+}
