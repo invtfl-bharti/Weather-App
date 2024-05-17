@@ -40,7 +40,7 @@ body {
     background-color: rgba(138, 24, 155, 0.5);
     border-radius: 60%;
     top: -20rem;
-    left: 22%;
+    left: 18%;
     filter: blur(20px);
     /* adjust this value as needed */
 }
@@ -70,8 +70,8 @@ body {
     left: 40%;
     height: 2.8rem;
     width: 25%;
-    background-color: #7000ff;
-    box-shadow: rgba(13, 12, 13, 0.993) 0px 5px 15px;
+    background-color: #2b085a;
+    box-shadow: rgba(204, 76, 229, 0.903) 1.95px 1.95px 2.6px;
 }
 
 .search ::placeholder {
@@ -83,7 +83,7 @@ body {
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
-    background-color: #7000FF;
+    background-color: #2b085a;
     color: white;
     border-radius: 1rem;
     border: none;
@@ -182,28 +182,30 @@ body {
     font-size: 5rem;
 }
 
-.temp{
+.temp {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.temp-info{
+.temp-info {
     position: absolute;
     top: 30%;
     left: 27%;
 }
-.weather-info{
+
+.weather-info {
     font-size: 1.5rem;
 }
-.temp-value{
+
+.temp-value {
     font-size: 4rem;
     color: #00FFFF;
-    
+
 }
 
 
-#weather-conditions{
+#weather-conditions {
     height: 25%;
     width: 35%;
     display: grid;
@@ -215,6 +217,84 @@ body {
     gap: 10px;
 }
 
-.stat1-value{
+.stat1-value {
     color: #00FFFF;
+}
+
+
+
+.right-sec {
+    position: relative;
+    left: 60%;
+    top: 15%;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.days-desc {
+    display: flex;
+    height: 7%;
+    width: 400px;
+    border: 2px solid white;
+    border-radius: 1rem;
+    /* gap: 10%; */
+    background-color: white;
+
+}
+
+.today {
+    height: 3rem;
+    width: 50%;
+    border: 2px solid white;
+    background-color: #7000FF;
+    border-radius: 1rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    box-shadow: rgba(244, 244, 249, 0.25) 0px 50px 100px -20px, rgba(247, 242, 242, 0.3) 0px 30px 60px -30px, rgba(217, 222, 227, 0.35) 0px -2px 6px 0px inset;
+}
+
+.days {
+    background-color: white;
+    color: black;
+    height: 3rem;
+    width: 50%;
+    border: 2px solid white;
+    background-color: #fefdff;
+    border-radius: 1rem;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.details {
+    display: flex;
+    gap: 2rem;
+    height: 3.5rem;
+    width: 400px;
+    border: 2px solid white;
+    background-color: #7000FF;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 0.8rem 0px 0px 1rem;
+    gap: 20%;
+
+}
+
+.image2{
+    position: absolute;
+
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    left: 25%;
+    border: 2px solid white;
+}
+
+.image2 img{
+    height: 4rem;
+    width: 4rem;
 }
