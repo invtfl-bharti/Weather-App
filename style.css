@@ -10,6 +10,8 @@ body {
     width: 100%;
     background-color: #1b013c;
     overflow: hidden;
+    color: white;
+    font-family: "Poppins", sans-serif;
 }
 
 #main-sec {
@@ -17,6 +19,7 @@ body {
     position: relative;
     height: 100vh;
     width: 100vw;
+    display: flex;
 }
 
 .navbar {
@@ -37,8 +40,8 @@ body {
     background-color: rgba(138, 24, 155, 0.5);
     border-radius: 60%;
     top: -20rem;
-    left: 15%;
-    filter: blur(22px);
+    left: 22%;
+    filter: blur(20px);
     /* adjust this value as needed */
 }
 
@@ -47,8 +50,6 @@ body {
     width: 10%;
     object-fit: cover;
     /* border: 2px solid white; */
-    object-fit: cover;
-
 
 }
 
@@ -67,20 +68,21 @@ body {
     border-radius: 1rem;
     top: 1.2rem;
     left: 40%;
-    height: 3rem;
-    width: 30%;
+    height: 2.8rem;
+    width: 25%;
     background-color: #7000ff;
     box-shadow: rgba(13, 12, 13, 0.993) 0px 5px 15px;
 }
 
 .search ::placeholder {
     color: white;
+
 }
 
 .search input {
     height: 100%;
-    width: 140%;
-    font-size: 1.5rem;
+    width: 100%;
+    font-size: 1.2rem;
     background-color: #7000FF;
     color: white;
     border-radius: 1rem;
@@ -117,7 +119,7 @@ body {
     border-radius: 50%;
     top: 78%;
     left: -4%;
-    filter: blur(22px);
+    filter: blur(20px);
 }
 
 .blur-effect-blue-main-right {
@@ -131,4 +133,88 @@ body {
     z-index: 50;
     filter: blur(20px);
 
+}
+
+.entire-info {
+    display: flex;
+}
+
+#place-title {
+    font-size: 4rem;
+    font-family: "Merriweather", serif;
+    font-weight: 600;
+    position: absolute;
+    top: 10%;
+    left: 12%;
+}
+
+#place-sub-title {
+    font-size: 1.5rem;
+    font-family: "Merriweather", serif;
+    position: absolute;
+    top: 20%;
+    left: 12%;
+}
+
+.image {
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+    position: absolute;
+    top: 20%;
+    left: 7%;
+}
+
+.image img {
+    object-fit: cover;
+
+    height: 15rem;
+    width: 15rem;
+}
+
+.down-icon {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+}
+
+.down-icon i {
+    font-size: 5rem;
+}
+
+.temp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp-info{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+}
+.weather-info{
+    font-size: 1.5rem;
+}
+.temp-value{
+    font-size: 4rem;
+    color: #00FFFF;
+    
+}
+
+
+#weather-conditions{
+    height: 25%;
+    width: 35%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: absolute;
+    top: 55%;
+    left: 11%;
+    gap: 10px;
+}
+
+.stat1-value{
+    color: #00FFFF;
 }
