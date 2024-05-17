@@ -226,7 +226,7 @@ body {
 .right-sec {
     position: relative;
     left: 60%;
-    top: 15%;
+    top: 12%;
     height: 100%;
     width: 100%;
     /* border: 2px solid white; */
@@ -255,7 +255,7 @@ body {
     border-radius: 1rem;
     text-align: center;
     padding-top: 0.5rem;
-    box-shadow: rgba(244, 244, 249, 0.25) 0px 50px 100px -20px, rgba(247, 242, 242, 0.3) 0px 30px 60px -30px, rgba(217, 222, 227, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(74, 168, 173, 0.974) 0px 30px 60px -12px inset, rgba(8, 34, 86, 0.971) 0px 18px 36px -18px inset;
 }
 
 .days {
@@ -281,20 +281,22 @@ body {
     text-align: center;
     padding: 0.8rem 0px 0px 1rem;
     gap: 20%;
+    box-shadow: rgba(74, 168, 173, 0.974) 0px 30px 60px -12px inset, rgba(8, 34, 86, 0.971) 0px 18px 36px -18px inset;
 
 }
 
 .image2{
     position: absolute;
-
-    height: 4rem;
+    margin-top: -10px;
+    height: 3rem;
     width: 4rem;
     position: absolute;
     left: 25%;
-    border: 2px solid white;
+
 }
 
 .image2 img{
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover;
 }
