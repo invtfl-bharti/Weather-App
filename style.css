@@ -76,8 +76,16 @@ body {
 
 .search ::placeholder {
     color: white;
+    
 
 }
+
+.search-icon{
+    background-color: #2b085a;
+    border-radius: 40%;
+    border: none;
+}
+
 
 .search input {
     height: 100%;
@@ -97,6 +105,9 @@ body {
     margin-left: 6rem;
     padding: 8px 0px 0px 0px;
 
+}
+.bx-search :hover{
+    color: rgb(218, 175, 241);
 }
 
 .menu {
