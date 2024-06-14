@@ -311,3 +311,17 @@ body {
     width: 3rem;
     object-fit: cover;
 }
+
+
+.wind-image img{
+     height: 2rem;
+     width: 2rem;
+}
+.humid-image img{
+     height: 2rem;
+     width: 2rem;
+}
+.cloud-image img{
+     height: 2rem;
+     width: 2rem;
+}
