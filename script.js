@@ -1,21 +1,39 @@
-const API_KEY = "d1845658f92b31c64bd94f06f7188c9c";
-async function fetchWeatherDets() {
+let cityName = document.querySelector('#place-title');
+let locationName = document.querySelector('#place-sub-title');
+
+let weatherCondition = document.querySelector('.weather-condition')
+
+let tempValue = document.querySelector('#temp-value');
+
+let feelsLikeTemp = document.querySelector('#feelsLikeTemp');
+
+let dayHighTemp = document.querySelector('#dayHighTemp')
+
+
+let dayLowTemp = document.querySelector('#dayLowTemp');
+
+
+const API_KEY = "700653cea56e40ac96245734240807";
+async function fetchCurrentWeather() {
     try {
         
-        let city = "nashik";
+        let cityName = "bhopal";
         // API Call
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-        const data = await response.json();
-        console.log("Weather data :->", data);
+        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}`);
+        const weatherData = await response.json();
+        console.log("Weather data :->",  weatherData);
+        showCurrentWeather( weatherData);
     
-        let newPara = document.querySelector('.temp-value');
-        newPara.textContent  = `${data?.main?.temp.toFixed(2)} °C`;
     }
-    catch(err) {
+    catch (err) {
+        alert("Something went wrong.");
         console.log("An error occured");
     }
+
         
 } 
+
+fetchCurrentWeather();
 
 async function getCustomWeatherDets() {
     try {
@@ -52,4 +70,28 @@ function showPosition(position) {
 
 }
 
+
+
+const userTab = document.querySelector("[data-userWeather]");
+const searchTab = document.querySelector("[data-SearchWeather]");
+
     
+function showCurrentWeather(weatherData) { 
+    cityName.textContent = weatherData?.location?.name;
+
+    locationName.textContent = `${weatherData?.location?.region},${weatherData?.location?.country}`;
+
+    weatherCondition.textContent = weatherData?.current?.condition?.text;
+
+    tempValue.innerHTML = `${Math.floor(weatherData?.current?.temp_c)}&degC`;
+
+    feelsLikeTemp.innerHTML = `${Math.floor(weatherData?.current?.feelslike_c)}&degC`;
+    
+    dayHighTemp.innerHTML = `${Math.floor(weatherData?.forecast?.forecastday[0]?.day?.maxtemp_c)}&degC`;
+
+
+    dayLowTemp.innerHTML = `${Math.floor(weatherData?.forecast?.forecastday[0]?.day?.mintemp_c)}&degC`;
+
+}
+
+

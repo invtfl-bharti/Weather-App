@@ -205,11 +205,11 @@ body {
     left: 27%;
 }
 
-.weather-info {
+.weather-condition {
     font-size: 1.5rem;
 }
 
-.temp-value {
+#temp-value {
     font-size: 4rem;
     color: #00FFFF;
 
@@ -324,4 +324,9 @@ body {
 .cloud-image img{
      height: 2rem;
      width: 2rem;
+}
+.loading-container img{
+    height: 150px;
+    width: 150px;
+
 }

@@ -28,7 +28,7 @@
         <!-- Search -->
         <div class="search">
             <div class="input-box"><input type="text" placeholder="Search for places..."></div>
-            <button  class="search-icon"><i class='bx bx-search' style='color:#ffffff'></i></button>
+            <button class="search-icon"><i class='bx bx-search' style='color:#ffffff'></i></button>
         </div>
 
         <div class="menu">
@@ -64,8 +64,8 @@
                     <img src="./images/Sun cloud mid rain Background Removed.png" alt="" srcset="">
                 </div>
                 <div class="temp-info">
-                    <p class="weather-info">Mostly Clear</p>
-                    <p class="temp-value"> 35°C</p>
+                    <p class="weather-condition">Mostly Clear</p>
+                    <p id="temp-value"> 35 &degC</p>
                 </div>
             </div>
             <div class="weather-info">
@@ -77,15 +77,15 @@
                         <p>Feels like</p>
                     </div>
                     <div class="stat1-value">
-                        <p>20°C</p>
+                        <p id="feelsLikeTemp">20°C</p>
                     </div>
                 </div>
                 <div id="day-high">
                     <div class="stat1">
-                        <p>Day High</p>
+                        <p >Day High</p>
                     </div>
                     <div class="stat1-value">
-                        <p>20°C</p>
+                        <p id="dayHighTemp">20°C</p>
                     </div>
                 </div>
                 <div id="day-low">
@@ -93,7 +93,7 @@
                         <p>Day Low</p>
                     </div>
                     <div class="stat1-value">
-                        <p>20°C</p>
+                        <p id="dayLowTemp">20°C</p>
                     </div>
                 </div>
                 <div id="wind-speed">
@@ -101,7 +101,7 @@
                         <p>Wind Speed</p>
                     </div>
                     <div class="stat1-value">
-                        <p>20 km/hr</p>
+                        <p class="WindSpeed">20 km/hr</p>
                     </div>
                     <div class="wind-image">
                         <img src="./images/Wind.png" alt="" srcset="">
@@ -137,15 +137,17 @@
 
         <div class="right-sec">
 
-            <div class="days-desc">
-                <div class="today">
+            <div class="days-desc" data-userWeather>
+                <div class="today" data-userWeather>
                     <p>Today</p>
                 </div>
-                <div class="days">
+                <div class="days" data-SearchWeather>
                     <p>10 days</p>
                 </div>
             </div>
 
+            <!-- Today's Weather -->
+
             <div class="details">
                 <div class="time">
                     <p>12:00PM</p>
@@ -195,7 +197,7 @@
                 <div class="time">
                     <p>12:00PM</p>
                 </div>
-                 
+
                 <div class="humidity">
                     <p>0%</p>
                 </div>
@@ -209,7 +211,7 @@
                     <p>12:00PM</p>
                 </div>
                 <div class="tem">
-                    <p class = "tem">35°C</p>
+                    <p class="tem">35°C</p>
                 </div>
                 <div class="humidity">
                     <p>0%</p>
@@ -224,8 +226,11 @@
 
 
 
-
-
+<!-- loading container -->
+    <div class="loading-container">
+        <img src="./images/loading.gif" alt="" srcset="">
+        <p>Loading</p>
+    </div>
 
 
 
