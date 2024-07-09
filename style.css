@@ -15,11 +15,13 @@ body {
 }
 
 #main-sec {
-
     position: relative;
     height: 100vh;
     width: 100vw;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10rem;
 }
 
 .navbar {
@@ -49,7 +51,6 @@ body {
     height: 100%;
     width: 10%;
     object-fit: cover;
-    /* border: 2px solid white; */
 
 }
 
@@ -76,11 +77,11 @@ body {
 
 .search ::placeholder {
     color: white;
-    
+
 
 }
 
-.search-icon{
+.search-icon {
     background-color: #2b085a;
     border-radius: 40%;
     border: none;
@@ -106,7 +107,8 @@ body {
     padding: 8px 0px 0px 0px;
 
 }
-.bx-search :hover{
+
+.bx-search :hover {
     color: rgb(218, 175, 241);
 }
 
@@ -131,6 +133,7 @@ body {
     top: 78%;
     left: -4%;
     filter: blur(20px);
+    z-index: 50;
 }
 
 .blur-effect-blue-main-right {
@@ -207,6 +210,7 @@ body {
 
 .weather-condition {
     font-size: 1.5rem;
+    width: 15rem;
 }
 
 #temp-value {
@@ -235,97 +239,99 @@ body {
 
 
 .right-sec {
-    position: relative;
-    left: 60%;
-    top: 12%;
-    height: 100%;
-    width: 100%;
-    /* border: 2px solid white; */
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     gap: 2rem;
+    height: 100vh;
+    width: 40%;
 
 }
 
 .days-desc {
     display: flex;
-    height: 7%;
-    width: 400px;
+    justify-content: space-between;
+    /* height: 400px; */
+    width: 100%;
+    padding-block: 0.2rem;
     border: 2px solid white;
     border-radius: 1rem;
-    /* gap: 10%; */
     background-color: white;
 
 }
 
 .today {
-    height: 3rem;
     width: 50%;
+    /* height: 100%; */
     border: 2px solid white;
     background-color: #7000FF;
     border-radius: 1rem;
     text-align: center;
-    padding-top: 0.5rem;
+    padding: 0.8rem 2rem;
     box-shadow: rgba(74, 168, 173, 0.974) 0px 30px 60px -12px inset, rgba(8, 34, 86, 0.971) 0px 18px 36px -18px inset;
 }
 
 .days {
+    width: 50%;
+    height: 100%;
     background-color: white;
     color: black;
-    height: 3rem;
-    width: 50%;
     border: 2px solid white;
     background-color: #fefdff;
     border-radius: 1rem;
+    padding: 0.8rem 2rem;
     text-align: center;
-    padding-top: 0.5rem;
+}
+
+.hourlyWeather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
 }
 
 .details {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 2rem; */
     height: 3.5rem;
-    width: 400px;
+    width: 100%;
     border: 2px solid white;
     background-color: #7000FF;
     border-radius: 1rem;
     text-align: center;
-    padding: 0.8rem 0px 0px 1rem;
-    gap: 20%;
+    padding-inline: 1rem;
     box-shadow: rgba(74, 168, 173, 0.974) 0px 30px 60px -12px inset, rgba(8, 34, 86, 0.971) 0px 18px 36px -18px inset;
 
 }
 
-.image2{
-    position: absolute;
-    margin-top: -8px;
-    height: 3rem;
-    width: 4rem;
-    position: absolute;
-    left: 22%;
-
-}
-
-.image2 img{
+.image2 img {
     height: 3rem;
     width: 3rem;
     object-fit: cover;
 }
 
 
-.wind-image img{
-     height: 2rem;
-     width: 2rem;
+.wind-image img {
+    height: 2rem;
+    width: 2rem;
 }
-.humid-image img{
-     height: 2rem;
-     width: 2rem;
+
+.humid-image img {
+    height: 2rem;
+    width: 2rem;
 }
-.cloud-image img{
-     height: 2rem;
-     width: 2rem;
+
+.cloud-image img {
+    height: 2rem;
+    width: 2rem;
 }
-.loading-container img{
+
+.loading-container img {
     height: 150px;
     width: 150px;
 
