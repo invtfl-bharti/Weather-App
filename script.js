@@ -14,9 +14,12 @@ let dayLowTemp = document.querySelector("#dayLowTemp");
 let hourlyWeather = document.querySelector("#hourlyWeather");
 
 const API_KEY = "700653cea56e40ac96245734240807";
+
+getFromSessionStorage();
+
 async function fetchCurrentWeather() {
   try {
-    let cityName = "bhopal";
+    let cityName = "nasik";
     // API Call
     const response = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${cityName}`
@@ -31,21 +34,23 @@ async function fetchCurrentWeather() {
   }
 }
 
-fetchCurrentWeather();
-
-async function getCustomWeatherDets() {
-  try {
-    let latitude = 42.444;
-    let longitude = 42.444;
-    let result = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+async function getCustomWeatherDets(userCoordinates) {
+  const { lat, long } = userCoordinates;
+    try {
+      
+    const response = await fetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${lat},${long}`
     );
-    let data = await result.json();
+        let weatherData = await response.json();
+        showCurrentWeather(weatherData);
+        showHourlyWeather(weatherData);
     console.log(data);
   } catch (err) {
     console.log("An error occurred", err);
-  }
+    }
+    
 }
+
 
 // Current Location
 
@@ -56,11 +61,26 @@ function getLocation() {
     console.log("No geolocation support");
   }
 }
+
+// function get from Session Storage
+
+function getFromSessionStorage() {
+    const localCoordinates = sessionStorage.getItem("user-coordinate");
+    if (localCoordinates) {
+        let coordinates = JSON.parse(localCoordinates);
+        getCustomWeatherDets(coordinates);
+    }
+    else {
+        alert("Location not found.");
+    }
+}
 function showPosition(position) {
-  let lat = position.coords.latitude;
-  let longi = position.coords.longitude;
-  console.log(lat);
-  console.log(longi);
+  const coordinates = {
+    lat: position.coords.latitide,
+    long: position.coords.longitude,
+  };
+  sessionStorage.setItem("user-coordinate", JSON.stringify(coordinates));
+  getCustomWeatherDets(coordinates);
 }
 
 const userTab = document.querySelector("[data-userWeather]");
@@ -88,15 +108,26 @@ function showCurrentWeather(weatherData) {
   )}&degC`;
 }
 
-function showHourlyWeather() {
+function showHourlyWeather(weatherData) {
   for (let i = 0; i < 24; i++) {
     const detailsDiv = document.createElement("div");
     detailsDiv.classList.add("details");
     const timeDiv = document.createElement("div");
     timeDiv.classList.add("time");
     const timePara = document.createElement("p");
-    timePara.textContent = "12pm";
+    let time =
+      weatherData?.forecast?.forecastday[0]?.hour[i]?.time.split(" ")[1];
 
+    let currentTime = "";
+    if (time.split(":")[0] >= 0 && time.split(":")[0] <= 11) {
+      currentTime = `${time}AM`;
+    } else if (time.split(":")[0] == 12) {
+      currentTime = `12:00PM`;
+    } else {
+      currentTime = `${time.split(":")[0] - 12}:00PM`;
+    }
+
+    timePara.textContent = currentTime;
     timeDiv.appendChild(timePara);
     detailsDiv.appendChild(timeDiv);
 
@@ -104,7 +135,9 @@ function showHourlyWeather() {
     const tempDiv = document.createElement("div");
     tempDiv.classList.add("tem");
     const tempPara = document.createElement("p");
-    tempPara.textContent = "35deg";
+    tempPara.innerHTML = `${Math.floor(
+      weatherData?.forecast?.forecastday[0]?.hour[i]?.temp_c
+    )}&degC`;
 
     tempDiv.appendChild(tempPara);
     detailsDiv.appendChild(tempDiv);
@@ -114,7 +147,7 @@ function showHourlyWeather() {
     const humidDiv = document.createElement("div");
     humidDiv.classList.add("humidity");
     const humidPara = document.createElement("p");
-    humidPara.textContent = "0 deg";
+    humidPara.innerHTML = `${weatherData?.forecast?.forecastday[0]?.hour[i]?.humidity}%`;
     humidDiv.appendChild(humidPara);
     detailsDiv.appendChild(humidDiv);
 
@@ -124,9 +157,21 @@ function showHourlyWeather() {
     imageDiv.classList.add("image2");
 
     const imageTag = document.createElement("img");
+    imageTag.src = `${weatherData?.forecast?.forecastday[0]?.hour[0]?.condition?.icon}`;
     imageDiv.appendChild(imageTag);
     detailsDiv.appendChild(imageDiv);
 
     hourlyWeather.appendChild(detailsDiv);
   }
 }
+
+
+let a = 10;
+let b = 20;
+
+function sum(x,y) {
+   let  a = x;
+    let b = y;
+    let c = a + b;
+}
+sum(a,b);

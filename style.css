@@ -58,8 +58,6 @@ body {
     height: 100%;
     width: 70%;
     object-fit: cover;
-
-
 }
 
 .search {
@@ -239,11 +237,14 @@ body {
 
 
 .right-sec {
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10%;
     gap: 2rem;
     height: 100vh;
-    width: 40%;
+    width: 50%;
+
 
 }
 
@@ -261,7 +262,6 @@ body {
 
 .today {
     width: 50%;
-    /* height: 100%; */
     border: 2px solid white;
     background-color: #7000FF;
     border-radius: 1rem;
@@ -282,13 +282,13 @@ body {
     text-align: center;
 }
 
-.hourlyWeather {
+#hourlyWeather {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
-    height: 100vh;
+    height: 60vh;
     width: 100%;
     overflow: scroll;
 }
