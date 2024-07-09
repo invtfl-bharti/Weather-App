@@ -13,6 +13,8 @@ let dayLowTemp = document.querySelector("#dayLowTemp");
 
 let hourlyWeather = document.querySelector("#hourlyWeather");
 
+const searchInput = document.querySelector('#searchInput');
+
 const API_KEY = "700653cea56e40ac96245734240807";
 
 getFromSessionStorage();
@@ -44,7 +46,7 @@ async function getCustomWeatherDets(userCoordinates) {
         let weatherData = await response.json();
         showCurrentWeather(weatherData);
         showHourlyWeather(weatherData);
-    console.log(data);
+    // console.log(data);
   } catch (err) {
     console.log("An error occurred", err);
     }
@@ -71,12 +73,13 @@ function getFromSessionStorage() {
         getCustomWeatherDets(coordinates);
     }
     else {
+        getLocation();
         alert("Location not found.");
     }
 }
 function showPosition(position) {
   const coordinates = {
-    lat: position.coords.latitide,
+    lat: position.coords.latitude,
     long: position.coords.longitude,
   };
   sessionStorage.setItem("user-coordinate", JSON.stringify(coordinates));
@@ -166,12 +169,19 @@ function showHourlyWeather(weatherData) {
 }
 
 
-let a = 10;
-let b = 20;
+searchInput.addEventListener('input', () => {
+    console.log(searchInput.value);
+});
 
-function sum(x,y) {
-   let  a = x;
-    let b = y;
-    let c = a + b;
+
+async function searchSuggestions(searchInput) {
+
+    let search = searchInput;
+    const response = await fetch(`http://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${search}`);
+
+    let searchSuggestionsData = await response.json();
+    console.log(searchSuggestionsData);
+
+
+
 }
-sum(a,b);
